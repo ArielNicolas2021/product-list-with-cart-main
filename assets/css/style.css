@@ -1,0 +1,519 @@
+/* Global */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+    --red: hsl(14, 86%, 42%);
+    --green: hsl(159, 69%, 38%);
+
+    --rose-50: hsl(24, 45%, 98%);
+    --rose-100: hsl(13, 31%, 94%);
+    --rose-300: hsl(14, 25%, 72%);
+    --rose-400: hsl(7, 20%, 60%);
+    --rose-500: hsl(12, 20%, 44%);
+    --rose-900: hsl(14, 65%, 9%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* /Global */
+
+body {
+    font-family: 'Red Hat Text', sans-serif;
+    background: var(--rose-50);
+}
+
+h1 {
+    margin: 1rem;
+    color: var(--rose-900);
+    font-size: 2.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+img {
+    width: 100%;
+}
+
+/* Cards */
+.cards {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.card-image {
+    position: relative;
+}
+
+.image-active {
+    position: relative;
+    border: 3px solid var(--red);
+}
+
+.card-image > img {
+    border-radius: .5rem;
+}
+
+.product-image-desktop {
+    display: none;
+}
+
+.card-category {
+    color: var(--rose-500);
+    font-size: .9rem;
+}
+
+.card-name {
+    color: var(--rose-900);
+    font-size: 1rem;
+}
+
+.card-price {
+    color: var(--red);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.card-btn {
+    padding: 1.2rem 1.5rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border: 1px solid var(--rose-500);
+    font-weight: 700;
+    background: #fff;
+    margin: 0 auto;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    transition: border .2s ease-out, color .2s ease-out;
+}
+
+.card-btn:hover {
+    border: 1px solid var(--red);
+    color: var(--red);
+}
+
+.card-btn > img {
+    width: 20px;
+    border-radius: 0;
+}
+
+.card-btn-order {
+    width: 9rem;
+    padding: 1.2rem 1rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border: none;
+    background: var(--red);
+    margin: 0 auto;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-btn-order > svg {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    padding: 2px;
+    cursor: pointer;
+    fill: #fff;
+    transition: background .2s ease-out;
+}
+
+.card-btn-order > svg:hover {
+    background: #fff;
+    fill: var(--red);
+}
+
+path {
+    pointer-events: none;
+}
+
+.position {
+    position: absolute;
+    bottom: -5%;
+    width: 100%;
+}
+/* /Cards */
+
+/* Cart */
+.cart {
+    margin: 1rem;
+    padding: 1rem 2rem;
+    background: #fff;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cart-title {
+    font-size: 1.5rem;
+    color: var(--red);
+}
+
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart-empty > img {
+    width: 50%;
+}
+
+.cart-products {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cart-text {
+    color: var(--rose-500);
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.product-text {
+    color: var(--rose-500);
+    font-weight: 600;
+}
+
+.product-name {
+    font-size: 1rem;
+    color: var(--rose-900);
+}
+
+.product-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product-count {
+    color: var(--red);
+    font-weight: 600;
+}
+
+.product-price {
+    color: var(--rose-300);
+}
+
+.product-total {
+    color: var(--rose-500);
+    font-weight: 600;
+}
+
+.cancel-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid var(--rose-300);
+    padding: 3px;
+    cursor: pointer;
+    fill: var(--rose-300);
+    transition: border .2s ease-out, fill .2s ease-out;
+}
+
+.cancel-btn:hover {
+    border: 2px solid var(--rose-900);
+    fill: var(--rose-900);
+}
+
+hr {
+    border: 1px solid var(--rose-100);
+}
+
+.cart-order-total {
+    display: flex;
+    align-items: center;
+}
+
+.cart-order-total > h3 {
+    width: 100%;
+    color: var(--rose-900);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.cart-order-total > span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--rose-900);
+}
+
+.cart-carbon {
+    color: var(--rose-900);
+    background: var(--rose-50);
+    padding: 1rem;
+    font-size: .9rem;
+    display: flex;
+    justify-content: center;
+}
+
+.cart-carbon > p > img {
+    width: 1rem;
+}
+
+.cart-btn {
+    text-align: center;
+}
+
+.red-btn {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    padding: 1rem;
+    background: var(--red);
+    border: none;
+    border-radius: 2rem;
+    max-width: 17rem;
+    width: 100%;
+    cursor: pointer;
+    transition: background .2s ease-out;
+}
+
+.red-btn:hover {
+    background: rgb(156, 44, 10);
+}
+
+.cart-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+/* /Cart */
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-img {
+    width: 3rem;
+}
+
+.modal-text > h3 {
+    font-size: 2.5rem;
+    color: var(--rose-900);
+}
+
+.modal-text > p {
+    color: var(--rose-500);
+}
+
+.modal-products {
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modalProduct {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modalProduct-container {
+    display: flex;
+    align-items: center;
+}
+
+.modalProduct-image {
+    width: 3rem;
+    border-radius: .5rem;
+}
+
+.modalProduct-content {
+    width: 100%;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.modalProduct-name {
+    font-size: .9rem;
+    color: var(--rose-900);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 10rem;
+}
+
+.modalProduct-dflex {
+    display: flex;
+    gap: 1rem;
+}
+
+.modalProduct-count {
+    color: var(--red);
+    font-weight: 700;
+}
+
+.modalProduct-price {
+    color: var(--rose-500);
+    font-weight: 600;
+}
+
+.modalProduct-total {
+    color: var(--rose-900);
+    font-weight: 700;
+}
+
+.modalProduct-order-total {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalProduct-order-total > h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--rose-500);
+}
+
+.modalProduct-order-total > span {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--rose-900);
+}
+
+.modalProduct-btn {
+    margin: 0 auto;
+}
+
+.modalProduct-btn > button {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    padding: 1rem 2rem;
+    background: var(--red);
+    border: none;
+    border-radius: 2rem;
+    max-width: 17rem;
+    width: 100%;
+    cursor: pointer;
+    transition: background .2s ease-out;
+}
+
+.modalProduct-btn > button:hover {
+    background: rgb(156, 44, 10);
+}
+/* /Modal */
+
+/* Footer */
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+/* /Footer */
+
+/* Desktop media query */
+@media(min-width: 769px){
+    body {
+        padding: 3rem;
+    }
+
+    main {
+        flex-direction: row;
+    }
+
+    .cards {
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .card-block {
+        width: 31%;
+    }
+
+    .product-image-desktop {
+        display: block;
+    }
+
+    .product-image-mobile {
+        display: none;
+    }
+
+    .cart {
+        width: 100%;
+        height: 100%;
+    }
+
+    .modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        bottom: auto;
+        width: 30rem;
+        height: 40rem;
+    }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Frontend Mentor | Product list with cart</title>
+</head>
+<body>
+  <h1>Desserts</h1>
+  <main>
+    <!-- Cards -->
+    <section class="cards">
+      <div class="card-block" v-for="(product, index) in products.items" :key="index">
+        <div class="card-image">
+          <img
+          :src="product.image.mobile"
+          :alt="product.name"
+          :class="product.selected ? 'product-image-mobile image-active' : 'product-image-mobile'">
+          <img
+          :src="product.image.desktop"
+          :alt="product.name"
+          :class="product.selected ? 'product-image-desktop image-active' : 'product-image-desktop'">
+          <div class="position">
+              <button 
+              class="card-btn" 
+              @click="handleButton" 
+              :title="index" 
+              v-if="!product.selected">
+                  <img src="assets/images/icon-add-to-cart.svg" alt="add to cart">
+                  Add to Cart
+              </button>
+              <button class="card-btn-order" v-if="product.selected" :title="index">
+                <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 10 2" 
+                @click="handleDecrement">
+                  <path d="M0 .375h10v1.25H0V.375Z"/>
+                </svg>
+                {{product.count}}
+                <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 10 10" 
+                @click="handleIncrement">
+                    <path d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/>
+                </svg>
+              </button>
+          </div>
+      </div>
+      <div class="card-content">
+          <span class="card-category">{{product.category}}</span>
+          <h3 class="card-name">{{product.name}}</h3>
+          <h3 class="card-price">$ {{(product.price).toFixed(2)}}</h3>
+      </div>
+      </div>
+    </section>
+    <!-- /Cards -->
+
+    <!-- Cart -->
+    <section class="cart">
+      <h2 class="cart-title">Your Cart ({{cartOrder}})</h2>
+      <div class="cart-empty" v-if="cartOrder == 0">
+        <img src="assets/images/illustration-empty-cart.svg" alt="empty cart">
+        <p class="cart-text">Your added items will appear here</p>
+      </div>
+      <div class="product" v-for="(product, index) in products.cart" :key="index">
+        <!-- Products add to cart -->
+        <h3 class="product-name">{{product.name}}</h3>
+        <div class="product-container">
+            <div class="product-content">
+                <span class="product-count">{{product.count}}x</span>
+                <span class="product-price">@ ${{(product.price).toFixed(2)}}</span>
+                <span class="product-total">${{(product.total).toFixed(2)}}</span>
+            </div>
+            <button class="cancel-btn" :title="product.id">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" @click="deleteOrder">
+                  <path d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"/>
+              </svg>
+
+            </button>
+        </div>
+        <hr>
+      </div>
+      <div class="cart-content" v-if="cartOrder != 0">
+        <div class="cart-order-total">
+          <h3>Order Total</h3>
+          <span>${{totalCart.toFixed(2)}}</span>
+        </div>
+        <div class="cart-carbon">
+          <p><img src="assets/images/icon-carbon-neutral.svg" alt="carbon neutral"> This is a <b>carbon-neutral</b> delivery</p>
+        </div>
+        <div class="cart-btn">
+          <button @click="modal = true" class="red-btn">Confirm Order</button>
+        </div>
+      </div>
+    </section>
+    <!-- Cart -->
+    
+    <!-- Modal -->
+    <section class="modal" v-show="modal">
+      <div class="modal-content">
+        <img src="assets/images/icon-order-confirmed.svg" alt="order confirmed" class="modal-img">
+        <div class="modal-text">
+          <h3>Order Confirmed</h3>
+          <p>We hope you enjoy your food!</p>
+        </div>
+        <div class="modal-products">
+          <div class="modalProduct" v-for="(product, index) in products.cart" :key="index">
+            <div class="modalProduct-container">
+              <img :src="product.image" alt="product.name" class="modalProduct-image">
+              <div class="modalProduct-content">
+                <h3 class="modalProduct-name">{{product.name}}</h3>
+                <div class="modalProduct-dflex">
+                  <span class="modalProduct-count">{{product.count}}x</span>
+                  <span class="modalProduct-price">@ ${{(product.price).toFixed(2)}}</span>
+                </div>
+              </div>
+              <span class="modalProduct-total">${{(product.total).toFixed(2)}}</span>
+            </div>
+              <hr>
+            </div>
+          </div>
+          <div class="modalProduct-order-total">
+            <h3>Order Total</h3>
+            <span>${{totalCart.toFixed(2)}}</span>
+          </div>
+          <div class="modalProduct-btn">
+            <button class="red-btn" @click="newOrder">Start New Order</button>
+          </div>
+      </div>
+    </section>
+    <!-- /Modal -->
+  </main>
+
+  <footer class="attribution">
+    <p>
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="assets/js/index.js"></script>
+</body>
+</html>
