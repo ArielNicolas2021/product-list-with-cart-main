@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Click here!](https://your-solution-url.com)
+- Solution URL: [Click here!](https://www.frontendmentor.io/solutions/product-list-with-cart---vuejs-pqqHl6NBkS)
 - Live Site URL: [Click here!](https://arielnicolas2021.github.io/product-list-with-cart-main)
 
 ## My process
