@@ -48,6 +48,6 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [Arielnicolas2021](https://arielnicolas2021.github.io/portfolio-2.0/)
+- Frontend Mentor - [@arielnicolas2021](https://www.frontendmentor.io/profile/arielnicolas2021)
+- Linkedin - [@arielaguilar2021](https://www.linkedin.com/in/arielaguilar2021/)
