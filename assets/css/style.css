@@ -86,12 +86,13 @@ img {
 .card-name {
     color: var(--rose-900);
     font-size: 1rem;
+    font-weight: 600;
 }
 
 .card-price {
     color: var(--red);
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .card-btn {
